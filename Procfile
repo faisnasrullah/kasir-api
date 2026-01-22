@@ -1,1 +1,1 @@
-web: kasir-api
+web: ./kasir-api
