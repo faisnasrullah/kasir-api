@@ -312,10 +312,20 @@ func deleteProduk(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	// GET localhost:8080/api/produk/{id}
+
 	// PUT localhost:8080/api/produk/{id}
 	// DELETE localhost:8080/api/produk/{id}
 	http.HandleFunc("/api/produk/", func(w http.ResponseWriter, r *http.Request) {
+		// Add CORS headers
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+
+		if r.Method == "OPTIONS" {
+			w.WriteHeader(http.StatusOK)
+			return
+		}
+
 		if r.Method == "GET" {
 			getProdukByID(w, r)
 		} else if r.Method == "PUT" {
@@ -329,6 +339,16 @@ func main() {
 	// GET /categories
 	// POST /categories
 	http.HandleFunc("/categories", func(w http.ResponseWriter, r *http.Request) {
+		// Add CORS headers
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+
+		if r.Method == "OPTIONS" {
+			w.WriteHeader(http.StatusOK)
+			return
+		}
+
 		if r.Method == "GET" {
 			getCategories(w, r)
 		} else if r.Method == "POST" {
@@ -340,6 +360,16 @@ func main() {
 	// PUT /categories/{id}
 	// DELETE /categories/{id}
 	http.HandleFunc("/categories/", func(w http.ResponseWriter, r *http.Request) {
+		// Add CORS headers
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+
+		if r.Method == "OPTIONS" {
+			w.WriteHeader(http.StatusOK)
+			return
+		}
+
 		if r.Method == "GET" {
 			getCategoryByID(w, r)
 		} else if r.Method == "PUT" {
@@ -352,6 +382,16 @@ func main() {
 	// GET localhost:8080/api/produk
 	// POST localhost:8080/api/produk
 	http.HandleFunc("/api/produk", func(w http.ResponseWriter, r *http.Request) {
+		// Add CORS headers
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+
+		if r.Method == "OPTIONS" {
+			w.WriteHeader(http.StatusOK)
+			return
+		}
+
 		if r.Method == "GET" {
 			getProduks(w, r)
 		} else if r.Method == "POST" {
@@ -361,6 +401,10 @@ func main() {
 
 	// localhost:8080/health
 	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+		// Add CORS headers
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
 		w.Header().Set("Content-Type", "application/json")
 		json.NewEncoder(w).Encode(map[string]string{
 			"status":  "OK",
