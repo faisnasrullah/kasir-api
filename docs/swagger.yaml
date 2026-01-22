@@ -48,7 +48,7 @@ definitions:
         example: 40
         type: integer
     type: object
-host: localhost:8080
+host: kasir-api-production-24f6.up.railway.app
 info:
   contact: {}
   description: API sederhana untuk kasir - categories dan produk
@@ -279,4 +279,6 @@ paths:
       summary: Update a category
       tags:
       - Categories
+schemes:
+- https
 swagger: "2.0"

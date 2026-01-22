@@ -1,4 +1,7 @@
 {
+    "schemes": [
+        "https"
+    ],
     "swagger": "2.0",
     "info": {
         "description": "API sederhana untuk kasir - categories dan produk",
@@ -6,7 +9,7 @@
         "contact": {},
         "version": "1.0"
     },
-    "host": "localhost:8080",
+    "host": "kasir-api-production-24f6.up.railway.app",
     "basePath": "/",
     "paths": {
         "/api/produk": {

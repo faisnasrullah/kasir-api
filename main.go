@@ -1,7 +1,8 @@
 // @title Kasir API
 // @version 1.0
 // @description API sederhana untuk kasir - categories dan produk
-// @host localhost:8080
+// @host kasir-api-production-24f6.up.railway.app
+// @schemes https
 // @BasePath /
 
 package main
