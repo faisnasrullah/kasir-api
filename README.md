@@ -22,19 +22,27 @@ Aplikasi API sederhana untuk sistem kasir dengan fitur manajemen categories dan 
 
 ## Quick Start
 
-### 1. Run Server
+### Live Deployment
+🚀 **Already Deployed!** Akses Swagger UI di sini:
+```
+https://kasir-api-production-24f6.up.railway.app/docs
+```
+
+### Local Development
+
+#### 1. Run Server
 ```bash
 go run main.go
 ```
 Server akan berjalan di `http://localhost:8080`
 
-### 2. Access Swagger UI
+#### 2. Access Swagger UI
 Buka browser ke:
 ```
 http://localhost:8080/docs/
 ```
 
-### 3. Health Check
+#### 3. Health Check
 ```bash
 curl http://localhost:8080/health | jq
 ```
