@@ -1,0 +1,282 @@
+basePath: /
+definitions:
+  main.Category:
+    properties:
+      description:
+        example: Produk makanan dan minuman
+        type: string
+      id:
+        example: 1
+        type: integer
+      name:
+        example: Makanan
+        type: string
+    type: object
+  main.CategoryInput:
+    properties:
+      description:
+        example: Pulpen, pensil
+        type: string
+      name:
+        example: Alat Tulis
+        type: string
+    type: object
+  main.Produk:
+    properties:
+      harga:
+        example: 3500
+        type: integer
+      id:
+        example: 1
+        type: integer
+      nama:
+        example: Indomie Goreng
+        type: string
+      stok:
+        example: 10
+        type: integer
+    type: object
+  main.ProdukInput:
+    properties:
+      harga:
+        example: 3000
+        type: integer
+      nama:
+        example: Vit 1000ml
+        type: string
+      stok:
+        example: 40
+        type: integer
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: API sederhana untuk kasir - categories dan produk
+  title: Kasir API
+  version: "1.0"
+paths:
+  /api/produk:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.Produk'
+            type: array
+      summary: Get all produk
+      tags:
+      - Produk
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Produk input
+        in: body
+        name: produk
+        required: true
+        schema:
+          $ref: '#/definitions/main.ProdukInput'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/main.Produk'
+      summary: Create a produk
+      tags:
+      - Produk
+  /api/produk/{id}:
+    delete:
+      parameters:
+      - description: Produk ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Delete a produk
+      tags:
+      - Produk
+    get:
+      parameters:
+      - description: Produk ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Produk'
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Get a produk by ID
+      tags:
+      - Produk
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Produk ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Produk input
+        in: body
+        name: produk
+        required: true
+        schema:
+          $ref: '#/definitions/main.ProdukInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Produk'
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Update a produk
+      tags:
+      - Produk
+  /categories:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.Category'
+            type: array
+      summary: Get all categories
+      tags:
+      - Categories
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Category input
+        in: body
+        name: category
+        required: true
+        schema:
+          $ref: '#/definitions/main.CategoryInput'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/main.Category'
+      summary: Create a category
+      tags:
+      - Categories
+  /categories/{id}:
+    delete:
+      parameters:
+      - description: Category ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Delete a category
+      tags:
+      - Categories
+    get:
+      parameters:
+      - description: Category ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Category'
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Get a category by ID
+      tags:
+      - Categories
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: Category ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Category input
+        in: body
+        name: category
+        required: true
+        schema:
+          $ref: '#/definitions/main.CategoryInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.Category'
+        "404":
+          description: Not Found
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Update a category
+      tags:
+      - Categories
+swagger: "2.0"

@@ -1,0 +1,28 @@
+# Binary files
+kasir-api
+*.exe
+*.dll
+*.so
+
+# Build output
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.log
+
+# Dependencies (optional - uncomment if using vendor directory)
+# vendor/
+
